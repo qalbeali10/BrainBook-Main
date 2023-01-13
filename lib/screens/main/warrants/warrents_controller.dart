@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
 
-class WarratnsController extends GetxController{
-
-
+class WarrantsController extends GetxController {
   List warrantLsit = [
     "When property was stolen or embezzled",
     "When property or things were used as the means of committing a felony",

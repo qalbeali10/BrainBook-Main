@@ -110,7 +110,8 @@ class LoginScreen extends GetView<LoginController> {
               ButtonWidget(
                 title: "LOGIN",
                 onTap: () {
-                  controller.loginUser();
+                  Get.toNamed(Routes.dashBoardScreen);
+                  // controller.loginUser();
                 },
               ),
               const SizedBox(

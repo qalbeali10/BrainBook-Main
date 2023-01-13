@@ -4,13 +4,13 @@ import 'package:get/route_manager.dart';
 
 class CountryGetProvider {
   final _dio = Dio();
-  final _baseUrl = "http://3.12.213.89:8080/";
+  final _baseUrl = "http://13.251.135.112:8080/";
   final _countryGetEndPoint = "api/v1/users/app-countries";
   Future<List<dynamic>> fetchCountry() async {
     try {
       var responce = await _dio.get(_baseUrl + _countryGetEndPoint);
       if (responce.statusCode == 200) {
-        print(responce.data);
+//print(responce.data);
         List<dynamic> data = (responce.data)
             .map((data) => CountryGetModel.fromJson(data))
             .toList();

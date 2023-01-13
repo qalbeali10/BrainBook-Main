@@ -7,7 +7,6 @@ import 'package:brainbook/screens/faqs/faqs_controller.dart';
 import 'package:brainbook/screens/main/gang_slang/widgets/gang_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../core/theme/values/colors.dart';
 
 class FAQsScreen extends GetView<FAQsController> {
@@ -25,19 +24,25 @@ class FAQsScreen extends GetView<FAQsController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               HeadingTextWidget(text: "Here are some FAQ`s"),
-              SizedBox(height: 15,),
+              SizedBox(
+                height: 15,
+              ),
               ListView.builder(
-                shrinkWrap: true,
+                  shrinkWrap: true,
                   physics: BouncingScrollPhysics(),
                   itemCount: controller.faqsList.length,
-                  itemBuilder: (context,index){
-                return GangSlangListWidget(
-                  text: controller.faqsList[index],onTap: ()=>Get.toNamed(Routes.fAQsDetailScreen,arguments: controller.faqsList[index]),
-                );
-              }),
-             // SizedBox(height: 20,),
+                  itemBuilder: (context, index) {
+                    return GangSlangListWidget(
+                      text: controller.faqsList[index],
+                      onTap: () => Get.toNamed(Routes.fAQsDetailScreen,
+                          arguments: controller.faqsList[index]),
+                    );
+                  }),
+              // SizedBox(height: 20,),
             ],
           ),
         ),

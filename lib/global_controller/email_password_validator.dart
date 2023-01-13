@@ -1,11 +1,14 @@
-// ignore_for_file: prefer_function_declarations_over_variables
+// ignore_for_file: prefer_function_declarations_over_variables, unused_field
 
 import 'package:brainbook/APIS_DATA/APIs_Models/Users_Models/User_ResetPassword_model.dart';
 import 'package:brainbook/APIS_DATA/APIs_Models/Users_Models/Users_%20SignUp_Model.dart';
 import 'package:brainbook/APIS_DATA/APIs_Models/Users_Models/Users_Login_Model.dart';
+import 'package:brainbook/APIS_DATA/APIs_Models/Users_Models/user_NewPassword_Model.dart';
+import 'package:brainbook/APIS_DATA/APIs_Providers/Users_Providers/User_Verification_Provider.dart';
 import 'package:get/get.dart';
 
 class ValidatorController extends GetxController {
+  final VerificationProvider _verificationProvider = VerificationProvider();
   // String? Function(String?)? emailValidator = (String? email) {
   //   if (email!.isEmpty) {
   //     return 'email empty';
@@ -109,4 +112,16 @@ class ValidatorController extends GetxController {
   ResetPasswordModel get resetPassword => _resetPassword.value;
   set resetPassword(ResetPasswordModel resetPassword) =>
       _resetPassword.value = resetPassword;
+
+  //     //......... Realted to verification Screen......//
+  // final Rx<VerificationModel> _verifyPassword = VerificationModel(data:{'[code]'}).obs;
+  // VerificationModel get verifyPassword => _verifyPassword.value;
+  // set verifyPassword(VerificationModel verifyPassword) =>
+  //     _verifyPassword.value = verifyPassword;
+
+  //......... Realted to new password Screen......//
+  final Rx<NewPasswordModel> _newPassword = NewPasswordModel(msg: '').obs;
+  NewPasswordModel get newPassword => _newPassword.value;
+  set newPassword(NewPasswordModel newPassword) =>
+      _newPassword.value = newPassword;
 }

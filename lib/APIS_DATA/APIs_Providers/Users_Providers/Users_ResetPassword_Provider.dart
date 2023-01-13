@@ -3,9 +3,9 @@ import 'dart:developer';
 import 'package:brainbook/APIS_DATA/APIs_Models/Users_Models/User_ResetPassword_model.dart';
 import 'package:dio/dio.dart';
 
-class ResetUserPasswordProvider {
+class ResetPasswordProvider {
   final _dio = Dio();
-  final _baseUrl = "http://3.12.213.89:8080/";
+  final _baseUrl = "http://13.251.135.112:8080/";
   final _resetPasswordEndPoint = "api/v1/users/password-reset";
   Future<dynamic> resetPassword({
     required String email,

@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, avoid_function_literals_in_foreach_calls, must_call_super, unused_field
 
 import 'package:brainbook/APIS_DATA/APIs_Providers/Country_Providers/Country_Get_Providers.dart';
-import 'package:brainbook/APIS_DATA/APIs_Providers/State_Provider/State_Get_Provider.dart';
+import 'package:brainbook/APIS_DATA/APIs_Providers/State_Provider/States_Get_Provider.dart';
 import 'package:brainbook/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,35 +24,36 @@ class HomeController extends GetxController {
   Future<void> onInit() async {
     //......... Called Countries Screen data in variables on Init function ......//
     countryResultList = await _countryGetProvider.fetchCountry();
-    // statesResultList = await _stateGetProvider.fetchState(countryId);
+    statesResultList = await _stateGetProvider.fetchStates(countryId);
 
     //.....Get Builder method.....//
     update();
-    countryResultList.forEach((element) {
-      Countries.add(element.countryName.toString());
-    });
-    //  statesResultList.forEach((element) {
+    // countryResultList.forEach((element) {
+    //   Countries.add(element.countryName.toString());
+    // });
+    // statesResultList.forEach((element) {
     //   States.add(element.state.toString());
     // });
-    // super.onInit();
+    super.onInit();
   }
 
 //.....Dynamic List for getting APIS DATA.....//
   List<dynamic> countryResultList = [].obs;
-  // List<dynamic> statesResultList = [].obs;
-
+  List<dynamic> statesResultList = [].obs;
   var val = "".obs;
 
-  List<String> Countries = [];
-  List<String> States = [
-    "California",
-    "Illinois",
-    "New York",
-    "Las Vegas",
-    "LASD",
-    "LASD",
-    "LASD",
-  ];
+  // List<String> Countries = [
+  //   "japan",
+  //   "uk",
+  //   "usa",
+  //   "germany",
+  // ];
+  // List<String> States = [
+  //   "new york",
+  //   "california",
+  //   "lasd",
+  //   "Lahore",
+  // ];
   List<String> Cities = [
     "hangu",
     "Peshawar",

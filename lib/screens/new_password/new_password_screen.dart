@@ -5,7 +5,6 @@ import 'package:brainbook/core/theme/values/text_style.dart';
 import 'package:brainbook/global_controller/email_password_validator.dart';
 import 'package:brainbook/global_widgets/elevated_button.dart';
 import 'package:brainbook/global_widgets/text_form_field.dart';
-import 'package:brainbook/routes/app_routes.dart';
 import 'package:brainbook/screens/new_password/new_password_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -116,7 +115,8 @@ class NewPassword extends GetView<NewPasswordContoller> {
                 ButtonWidget(
                   title: "CONFIRM",
                   onTap: () {
-                    Get.toNamed(Routes.passwordUpdateScreen);
+                    controller.enterNewPassword();
+                    //  Get.toNamed(Routes.passwordUpdateScreen);
                   },
                   // controller.confrimPassword,
                 ),

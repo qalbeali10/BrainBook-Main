@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 
 class UsersSignUpProviders {
   final _dio = Dio();
-  final String _baseUrl = "http://3.12.213.89:8080/";
+  final String _baseUrl = "http://13.251.135.112:8080/";
   final String _registerEndPoint = "api/v1/users/register";
 
   // //.....  SIGN UP API METHODS...  //

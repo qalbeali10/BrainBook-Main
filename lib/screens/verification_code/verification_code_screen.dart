@@ -5,7 +5,6 @@ import 'package:brainbook/core/theme/values/images.dart';
 import 'package:brainbook/core/theme/values/text_style.dart';
 import 'package:brainbook/global_widgets/elevated_button.dart';
 import 'package:brainbook/global_widgets/rich_text.dart';
-import 'package:brainbook/routes/app_routes.dart';
 import 'package:brainbook/screens/verification_code/verification_code_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -102,10 +101,8 @@ class VerificationCode extends GetView<VerificationCodeController> {
                 ButtonWidget(
                     title: "VERIFY",
                     onTap: () {
-                      Get.toNamed(Routes.newPasswordScreen);
-                    }
-                    //controller.verifyCode,
-                    ),
+                      controller.verifyCode();
+                    }),
                 const SizedBox(
                   height: 45,
                 ),

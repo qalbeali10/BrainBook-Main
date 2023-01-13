@@ -1,14 +1,37 @@
+import 'dart:math';
+import 'package:brainbook/APIS_DATA/APIs_Providers/Users_Providers/User_Verification_Provider.dart';
+import 'package:brainbook/routes/app_routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class VerificationCodeController extends GetxController {
-  VerificationCodeController(
-      // {required this.userProvider}
-      );
-  // late UserProvider userProvider;
+  //.....Instance.....//
+  final VerificationProvider _verificationProvider = VerificationProvider();
 
+//.....formKey and Variable Initializations.....//
   TextEditingController verificationCodeController = TextEditingController();
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
+
+//  Password Verification  Method //
+  void verifyCode() async {
+    if (globalKey.currentState!.validate()) {
+      var result = await _verificationProvider.verifyPassword(
+          data: verificationCodeController.text);
+      if (result is String) {
+        e.toString();
+        Get.snackbar(
+          "Error",
+          result,
+          snackPosition: SnackPosition.TOP,
+        );
+      } else {
+        // VerificationModel _verificationModel = result;
+        // Get.find<ValidatorController>().verifyPassword = _verificationModel;
+        verificationCodeController.clear();
+      }
+      Get.toNamed(Routes.newPasswordScreen);
+    }
+  }
 
 //   verifyCode() async{
 // if(globalKey.currentState!.validate()){

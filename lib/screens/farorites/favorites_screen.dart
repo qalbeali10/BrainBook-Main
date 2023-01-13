@@ -5,13 +5,12 @@ import 'package:brainbook/global_widgets/headind_text.dart';
 import 'package:brainbook/global_widgets/text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'favorites_controller.dart';
 
 class FavoritesScreen extends GetView<FavoritesController> {
-   FavoritesScreen({Key? key}) : super(key: key);
+  FavoritesScreen({Key? key}) : super(key: key);
 
-   final bool fav = false;
+  final bool fav = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,70 +35,69 @@ class FavoritesScreen extends GetView<FavoritesController> {
                   ),
                 ),
               ),
-          Padding(
-            padding: const EdgeInsets.only(top: 188.0),
-            child: HeadingTextWidget(
-                text: "You have no favorites!",
-              ),
-          )
-            //   fav==false? Column(crossAxisAlignment: CrossAxisAlignment.stretch,
-            //     children: [
-            //       SizedBox(
-            //         height: 20,
-            //       ),
-            //       HeadingTextWidget(text: "Today"),
-            //       SizedBox(
-            //         height: 20,
-            //       ),
-            //       Container(
-            //         height: 200,
-            //         child: ListView.builder(
-            //             physics: BouncingScrollPhysics(),
-            //             shrinkWrap: true,
-            //             itemCount: 2,
-            //             itemBuilder: (context, index) {
-            //               return DeleteCard(
-            //                 text: controller.favListTitle[index],
-            //                 onTapDelete: () {},
-            //                 onTapCard: () {},
-            //                 subtitile: Text(
-            //                   controller.favListSubtitle[index],
-            //                   style: TextStyle(color: fontColorLight),
-            //                 ),
-            //               );
-            //             }),
-            //       ),
-            //       SizedBox(
-            //         height: 20,
-            //       ),
-            //       HeadingTextWidget(text: "Last Week"),
-            //       SizedBox(
-            //         height: 20,
-            //       ),
-            //       Container(
-            //         height: 200,
-            //         child: ListView.builder(
-            //             shrinkWrap: true,
-            //             itemCount: 2,
-            //             itemBuilder: (context, index) {
-            //               return DeleteCard(
-            //                 text: controller.favListTitle[index],
-            //                 onTapDelete: () {},
-            //                 onTapCard: () {},
-            //                 subtitile: Text(
-            //                   controller.favListSubtitle[index],
-            //                   style: TextStyle(color: fontColorLight),
-            //                 ),
-            //               );
-            //             }),
-            //       )
-            //     ],
-            //   ):Center(
-            // child: HeadingTextWidget(
-            //   text: "You have no favorties!",
-            // ),
-            //   ),
-
+              Padding(
+                padding: const EdgeInsets.only(top: 188.0),
+                child: HeadingTextWidget(
+                  text: "You have no favorites!",
+                ),
+              )
+              //   fav==false? Column(crossAxisAlignment: CrossAxisAlignment.stretch,
+              //     children: [
+              //       SizedBox(
+              //         height: 20,
+              //       ),
+              //       HeadingTextWidget(text: "Today"),
+              //       SizedBox(
+              //         height: 20,
+              //       ),
+              //       Container(
+              //         height: 200,
+              //         child: ListView.builder(
+              //             physics: BouncingScrollPhysics(),
+              //             shrinkWrap: true,
+              //             itemCount: 2,
+              //             itemBuilder: (context, index) {
+              //               return DeleteCard(
+              //                 text: controller.favListTitle[index],
+              //                 onTapDelete: () {},
+              //                 onTapCard: () {},
+              //                 subtitile: Text(
+              //                   controller.favListSubtitle[index],
+              //                   style: TextStyle(color: fontColorLight),
+              //                 ),
+              //               );
+              //             }),
+              //       ),
+              //       SizedBox(
+              //         height: 20,
+              //       ),
+              //       HeadingTextWidget(text: "Last Week"),
+              //       SizedBox(
+              //         height: 20,
+              //       ),
+              //       Container(
+              //         height: 200,
+              //         child: ListView.builder(
+              //             shrinkWrap: true,
+              //             itemCount: 2,
+              //             itemBuilder: (context, index) {
+              //               return DeleteCard(
+              //                 text: controller.favListTitle[index],
+              //                 onTapDelete: () {},
+              //                 onTapCard: () {},
+              //                 subtitile: Text(
+              //                   controller.favListSubtitle[index],
+              //                   style: TextStyle(color: fontColorLight),
+              //                 ),
+              //               );
+              //             }),
+              //       )
+              //     ],
+              //   ):Center(
+              // child: HeadingTextWidget(
+              //   text: "You have no favorties!",
+              // ),
+              //   ),
             ],
           ),
         ),

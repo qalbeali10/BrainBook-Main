@@ -10,16 +10,16 @@ import 'package:get/get.dart';
 
 class ForogtPasswordContoller extends GetxController {
   //.....Instance.....//
-  final ResetUserPasswordProvider _resetUserPasswordProvider =
-      ResetUserPasswordProvider();
+  final ResetPasswordProvider _resetPasswordProvider = ResetPasswordProvider();
 
 //.....formKey and Variable Initializations.....//
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
 
+  // Reset Password Method //
   void resetPassword() async {
     if (globalKey.currentState!.validate()) {
-      var result = await _resetUserPasswordProvider.resetPassword(
+      var result = await _resetPasswordProvider.resetPassword(
         email: emailController.text,
       );
       if (result is String) {
@@ -37,28 +37,4 @@ class ForogtPasswordContoller extends GetxController {
       Get.toNamed(Routes.verificationCodeScreen);
     }
   }
-
-// sendRequest() async{
-//   if (globalKey.currentState!.validate()){
-//
-//
-//     try{
-//       final response = await  userProvider.passwordReset(email: emailController.text);
-//
-//       if(response[1]==true){
-//
-//         //Get.snackbar("scucess", response[0]);
-//         Get.toNamed(Routes.verificationCodeScreen,arguments: emailController.text);
-//       }
-//       else{
-//         Get.snackbar("Error", response[0]);
-//       }
-//
-//     }
-//         catch(e){
-//       Get.snackbar("Error", e.toString());
-//         }
-//   }
-// }
-
 }

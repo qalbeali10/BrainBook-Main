@@ -6,7 +6,6 @@ import 'package:brainbook/screens/dash_board/dash_board_controller.dart';
 import 'package:brainbook/screens/dash_board/drawer_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DashBoard extends GetView<DashBoardController> {
@@ -30,8 +29,8 @@ class DashBoard extends GetView<DashBoardController> {
                   const EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0),
               child: GestureDetector(
                 onTap: () {
-                  final _getStorage = GetStorage();
-                  _getStorage.remove('data');
+                  // final _getStorage = GetStorage();
+                  // _getStorage.remove('data');
                   Navigator.pop(Get.context!);
                 },
                 child: Image.asset(
