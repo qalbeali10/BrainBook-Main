@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, avoid_function_literals_in_foreach_calls, must_call_super, unused_field
 
 import 'package:brainbook/APIS_DATA/APIs_Providers/Country_Providers/Country_Get_Providers.dart';
+import 'package:brainbook/APIS_DATA/APIs_Providers/County_Provider/County_Get_Provider.dart';
 import 'package:brainbook/APIS_DATA/APIs_Providers/State_Provider/States_Get_Provider.dart';
 import 'package:brainbook/routes/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -11,35 +12,36 @@ class HomeController extends GetxController {
   //.....Instances.....//
   final CountryGetProvider _countryGetProvider = CountryGetProvider();
   final StateGetProvider _stateGetProvider = StateGetProvider();
+  final CountyGetProvider _countyGetProvider = CountyGetProvider();
 
   //.....Variables Initializations & Text Editing Controillers.....//
   final String countryId;
+  final String stateId;
   GlobalKey<FormState> globalKey = GlobalKey<FormState>();
   TextEditingController countryController = TextEditingController();
   TextEditingController stateController = TextEditingController();
-  HomeController(this.countryId);
+  HomeController({required this.countryId, required this.stateId});
 
   //.....On init Function for GETX(controller).....//
   @override
   Future<void> onInit() async {
+    print(countryId);
+    print(stateId);
     //......... Called Countries Screen data in variables on Init function ......//
     countryResultList = await _countryGetProvider.fetchCountry();
     statesResultList = await _stateGetProvider.fetchStates(countryId);
+    countyResultList = await _countyGetProvider.fetchCounty(stateId);
 
     //.....Get Builder method.....//
     update();
-    // countryResultList.forEach((element) {
-    //   Countries.add(element.countryName.toString());
-    // });
-    // statesResultList.forEach((element) {
-    //   States.add(element.state.toString());
-    // });
     super.onInit();
   }
 
 //.....Dynamic List for getting APIS DATA.....//
   List<dynamic> countryResultList = [].obs;
   List<dynamic> statesResultList = [].obs;
+  List<dynamic> countyResultList = [].obs;
+
   var val = "".obs;
 
   // List<String> Countries = [
@@ -54,22 +56,22 @@ class HomeController extends GetxController {
   //   "lasd",
   //   "Lahore",
   // ];
-  List<String> Cities = [
-    "hangu",
-    "Peshawar",
-    "Islamabad",
-    "Lahore",
-  ];
-  List<String> Counties = [
-    "California",
-    "Illinois",
-    "New York",
-    "LASD",
-    "hangu",
-    "Peshawar",
-    "Islamabad",
-    "Lahore",
-  ];
+  // List<String> Cities = [
+  //   "hangu",
+  //   "Peshawar",
+  //   "Islamabad",
+  //   "Lahore",
+  // ];
+  // List<String> Counties = [
+  //   "California",
+  //   "Illinois",
+  //   "New York",
+  //   "LASD",
+  //   "hangu",
+  //   "Peshawar",
+  //   "Islamabad",
+  //   "Lahore",
+  // ];
   // final currentIndex = 0.obs;
   //
   // Widget get currentPage => pages[currentIndex.value];

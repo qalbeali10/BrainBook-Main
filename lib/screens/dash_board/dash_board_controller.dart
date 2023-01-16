@@ -65,6 +65,7 @@ class DashBoardController extends GetxController {
   List<Widget> pages = [
     Home(
       countryId: '',
+      stateId: '',
     ),
     FavoritesScreen(),
     AskACopScreen(),

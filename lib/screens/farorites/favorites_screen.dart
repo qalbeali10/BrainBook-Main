@@ -9,7 +9,6 @@ import 'favorites_controller.dart';
 
 class FavoritesScreen extends GetView<FavoritesController> {
   FavoritesScreen({Key? key}) : super(key: key);
-
   final bool fav = false;
 
   @override

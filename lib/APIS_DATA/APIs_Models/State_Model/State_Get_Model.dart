@@ -2,15 +2,20 @@ class StateGetModel {
   String? stateId;
   String? countryId;
   String? state;
-  String? imageUrl;
+  // String? imageUrl;
 
-  StateGetModel({this.stateId, this.countryId, this.state, this.imageUrl});
+  StateGetModel({
+    this.stateId,
+    this.countryId,
+    this.state,
+    //this.imageUrl
+  });
 
   StateGetModel.fromJson(Map<String, dynamic> json) {
     stateId = json['_id'];
     countryId = json['country'];
     state = json['state'];
-    imageUrl = json['ImageUrl'];
+    // imageUrl = json['ImageUrl'];
   }
 
   Map<String, dynamic> toJson() {
@@ -18,7 +23,7 @@ class StateGetModel {
     data['_id'] = stateId;
     data['country'] = countryId;
     data['state'] = state;
-    data['ImageUrl'] = imageUrl;
+    // data['ImageUrl'] = imageUrl;
     return data;
   }
 }

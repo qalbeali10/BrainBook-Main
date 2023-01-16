@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_contains, prefer_const_constructors_in_immutables, sort_child_properties_last
+import 'package:brainbook/APIS_DATA/APIs_Models/County_Model/County_Get_Model.dart';
+import 'package:brainbook/APIS_DATA/APIs_Models/State_Model/State_Get_Model.dart';
 import 'package:brainbook/APIS_DATA/APIs_Providers/Country_Providers/Country_Get_Providers.dart';
+import 'package:brainbook/APIS_DATA/APIs_Providers/County_Provider/County_Get_Provider.dart';
 import 'package:brainbook/APIS_DATA/APIs_Providers/State_Provider/States_Get_Provider.dart';
 import 'package:brainbook/core/theme/values/colors.dart';
 import 'package:brainbook/global_widgets/headind_text.dart';
@@ -8,10 +11,13 @@ import 'package:get/get.dart';
 import 'home_screen_controller.dart';
 
 class Home extends GetView<HomeController> {
-  Home({required this.countryId, Key? key}) : super(key: key);
+  Home({required this.countryId, required this.stateId, Key? key})
+      : super(key: key);
   final String countryId;
+  final String stateId;
   final CountryGetProvider _countryGetProvider = CountryGetProvider();
   final StateGetProvider _stateGetProvider = StateGetProvider();
+  final CountyGetProvider _countyGetProvider = CountyGetProvider();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +64,8 @@ class Home extends GetView<HomeController> {
                         horizontal: 18.0,
                       ),
                       child: GetBuilder<HomeController>(
-                        init: HomeController(''),
+                        init: HomeController(
+                            countryId: countryId, stateId: stateId),
                         builder: (_) {
                           return FutureBuilder(
                             future: _countryGetProvider.fetchCountry(),
@@ -90,6 +97,9 @@ class Home extends GetView<HomeController> {
                                     ),
                                   ),
                                   onChanged: (value) {
+                                    print(value);
+                                    _stateGetProvider
+                                        .fetchStates(value.toString());
                                     // Handle changes to the dropdown value
                                   },
                                 );
@@ -142,6 +152,13 @@ class Home extends GetView<HomeController> {
                                 ),
                               ),
                               onChanged: (value) {
+                                print(value);
+                                _countyGetProvider
+                                    .fetchCounty(value.toString());
+                                Object? a = value;
+                                StateGetModel b = a as StateGetModel;
+                                print(b.stateId);
+                                _stateGetProvider.fetchStates(b.stateId!);
                                 // Handle changes to the dropdown value
                               },
                             );
@@ -168,7 +185,7 @@ class Home extends GetView<HomeController> {
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 18.0),
                             child: FutureBuilder(
-                              future: _countryGetProvider.fetchCountry(),
+                              future: _countyGetProvider.fetchCounty(stateId),
                               builder: (BuildContext context,
                                   AsyncSnapshot snapshot) {
                                 if (snapshot.hasData) {
@@ -177,13 +194,13 @@ class Home extends GetView<HomeController> {
                                     isExpanded: true,
                                     //  key: controller.globalKey,
                                     hint: Text(
-                                      "Select Country",
+                                      "Select County",
                                       style: TextStyle(fontSize: 13),
                                     ),
                                     items: data.map((item) {
                                       return DropdownMenuItem(
-                                        child: Text(item.countryName),
-                                        value: item.countryId,
+                                        child: Text(item.countyName),
+                                        value: item.countyId,
                                       );
                                     }).toList(),
                                     decoration: InputDecoration(
@@ -197,6 +214,14 @@ class Home extends GetView<HomeController> {
                                       ),
                                     ),
                                     onChanged: (value) {
+                                      print(value);
+                                      // _countyGetProvider
+                                      //     .fetchCounty(value.toString());
+                                      Object? a = value;
+                                      CountyGetModel b = a as CountyGetModel;
+                                      print(b.countyId);
+                                      _stateGetProvider
+                                          .fetchStates(b.countyId!);
                                       // Handle changes to the dropdown value
                                     },
                                   );
@@ -272,10 +297,11 @@ class Home extends GetView<HomeController> {
             Container(
               height: MediaQuery.of(context).size.height / 1.52,
               child: Obx(() =>
-                  controller.Cities.indexOf(controller.val.value) == -1
+                  controller.countryResultList.indexOf(controller.val.value) ==
+                          -1
                       ? controller.pages[0]
-                      : controller.pages[
-                          controller.Cities.indexOf(controller.val.value)]),
+                      : controller.pages[controller.countryResultList
+                          .indexOf(controller.val.value)]),
             ),
             // SizedBox(
             //   height: 9,

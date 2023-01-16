@@ -10,7 +10,7 @@ class DashBoardBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => DashBoardController());
-    Get.lazyPut(() => HomeController(''));
+    Get.lazyPut(() => HomeController(countryId: '', stateId: ''));
     Get.lazyPut(() => FavoritesController());
     Get.lazyPut(() => AskACopController());
     Get.lazyPut(() => NoteBookController());
